@@ -1,5 +1,9 @@
+
 class Book {
+  
   String? id;
+
+  
   String title;
   String author;
   String genre;
@@ -15,6 +19,7 @@ class Book {
     required this.publishedYear,
   });
 
+  
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
       id: json['_id'],
@@ -25,6 +30,7 @@ class Book {
       publishedYear: json['publishedYear'],
     );
   }
+
 
   Map<String, dynamic> toJson() {
     return {

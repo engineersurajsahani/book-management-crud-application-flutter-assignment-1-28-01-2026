@@ -9,11 +9,11 @@ db.on("connected", () => {
 });
 
 db.on("error", (err) => {
-  console.log("❌ Database connection error:", err);
+  console.log(" Database connection error:", err);
 });
 
 db.on("disconnected", () => {
-  console.log("⚠️ Database disconnected");
+  console.log(" Database disconnected");
 });
 
 module.exports = mongoose;

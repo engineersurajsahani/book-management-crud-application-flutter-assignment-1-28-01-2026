@@ -1,6 +1,6 @@
 const Book = require("../models/Book");
 
-// ➕ Add Book
+
 exports.addBook = async (req, res) => {
       console.log("🔥 addBook controller reached");
   console.log(req.body);
@@ -19,7 +19,7 @@ exports.addBook = async (req, res) => {
   }
 };
 
-// 📄 Get All Books
+
 exports.getAllBooks = async (req, res) => {
   try {
     const books = await Book.find().sort({ createdAt: -1 });
@@ -33,7 +33,6 @@ exports.getAllBooks = async (req, res) => {
   }
 };
 
-// 📄 Get Book by ID
 exports.getBookById = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
@@ -46,7 +45,7 @@ exports.getBookById = async (req, res) => {
   }
 };
 
-// ✏️ Update Book
+
 exports.updateBook = async (req, res) => {
   try {
     const book = await Book.findByIdAndUpdate(
@@ -69,7 +68,7 @@ exports.updateBook = async (req, res) => {
   }
 };
 
-// 🗑️ Delete Book
+
 exports.deleteBook = async (req, res) => {
   try {
     const book = await Book.findByIdAndDelete(req.params.id);
