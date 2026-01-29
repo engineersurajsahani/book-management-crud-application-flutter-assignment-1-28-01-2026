@@ -5,19 +5,22 @@ import './screens/edit_book.dart';
 import './screens/view_book.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Book CRUD App',
       initialRoute: '/',
       routes: {
-        '/': (context) => BookListScreen(),
-        '/add_book': (context) => AddBookScreen(),
-        '/edit_book': (context) => EditBookScreen(),
-        '/view_book': (context) => ViewBookScreen(),
+        '/': (context) => const BookListScreen(),
+        '/add_book': (context) => const AddBookScreen(),
+        '/edit_book': (context) => const EditBookScreen(),
+        '/view_book': (context) => const ViewBookScreen(),
       },
     );
   }

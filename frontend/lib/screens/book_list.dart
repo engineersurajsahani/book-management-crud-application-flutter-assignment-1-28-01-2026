@@ -3,6 +3,9 @@ import '../models/book.dart';
 import '../services/book_service.dart';
 
 class BookListScreen extends StatefulWidget {
+  const BookListScreen({super.key});
+
+  @override
   BookListScreenState createState() => BookListScreenState();
 }
 
@@ -17,6 +20,7 @@ class BookListScreenState extends State<BookListScreen> {
     });
   }
 
+  @override
   void initState() {
     super.initState();
     loadBooks();
@@ -27,9 +31,10 @@ class BookListScreenState extends State<BookListScreen> {
     loadBooks();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Book List')),
+      appBar: AppBar(title: const Text('Book List')),
       body: ListView.builder(
         itemCount: books.length,
         itemBuilder: (context, index) {
@@ -43,7 +48,7 @@ class BookListScreenState extends State<BookListScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.visibility),
+                    icon: const Icon(Icons.visibility),
                     onPressed: () async {
                       await Navigator.pushNamed(
                         context,
@@ -53,7 +58,7 @@ class BookListScreenState extends State<BookListScreen> {
                     },
                   ),
                   IconButton(
-                    icon: Icon(Icons.edit),
+                    icon: const Icon(Icons.edit),
                     onPressed: () async {
                       await Navigator.pushNamed(
                         context,
@@ -64,7 +69,7 @@ class BookListScreenState extends State<BookListScreen> {
                     },
                   ),
                   IconButton(
-                    icon: Icon(Icons.delete),
+                    icon: const Icon(Icons.delete),
                     onPressed: () {
                       handleDelete(book.id);
                     },
@@ -76,7 +81,7 @@ class BookListScreenState extends State<BookListScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () async {
           await Navigator.pushNamed(context, '/add_book');
           loadBooks();

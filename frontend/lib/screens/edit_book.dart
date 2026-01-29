@@ -3,6 +3,9 @@ import '../models/book.dart';
 import '../services/book_service.dart';
 
 class EditBookScreen extends StatefulWidget {
+  const EditBookScreen({super.key});
+
+  @override
   EditBookScreenState createState() => EditBookScreenState();
 }
 
@@ -24,9 +27,12 @@ class EditBookScreenState extends State<EditBookScreen> {
       publishedYear: publishedYearController.text,
     );
     await BookService.updateBook(book);
-    Navigator.pop(context);
+    if (mounted) {
+      Navigator.pop(context);
+    }
   }
 
+  @override
   Widget build(BuildContext context) {
     Book book = ModalRoute.of(context)!.settings.arguments as Book;
     idController.text = book.id;
@@ -37,34 +43,34 @@ class EditBookScreenState extends State<EditBookScreen> {
     publishedYearController.text = book.publishedYear;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Edit Book')),
+      appBar: AppBar(title: const Text('Edit Book')),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: titleController,
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: const InputDecoration(labelText: 'Title'),
             ),
             TextField(
               controller: authorController,
-              decoration: InputDecoration(labelText: 'Author Name'),
+              decoration: const InputDecoration(labelText: 'Author Name'),
             ),
             TextField(
               controller: genreController,
-              decoration: InputDecoration(labelText: 'Genre'),
+              decoration: const InputDecoration(labelText: 'Genre'),
             ),
             TextField(
               controller: priceController,
-              decoration: InputDecoration(labelText: 'Price'),
+              decoration: const InputDecoration(labelText: 'Price'),
             ),
             TextField(
               controller: publishedYearController,
-              decoration: InputDecoration(labelText: 'Published Year'),
+              decoration: const InputDecoration(labelText: 'Published Year'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
-              child: Text("Update Book"),
+              child: const Text("Update Book"),
               onPressed: () {
                 handleSubmit();
               },

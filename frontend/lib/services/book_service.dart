@@ -3,11 +3,11 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class BookService {
-  static String API_URL = 'http://localhost:4000/books/';
+  static String apiUrl = 'http://localhost:4000/books/';
 
   static Future<void> addBook(Book book) async {
     await http.post(
-      Uri.parse(API_URL),
+      Uri.parse(apiUrl),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(book.toJson()),
     );
@@ -15,14 +15,14 @@ class BookService {
 
   static Future<void> updateBook(Book book) async {
     await http.put(
-      Uri.parse('${API_URL}${book.id}'),
+      Uri.parse('$apiUrl${book.id}'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(book.toJson()),
     );
   }
 
   static Future<void> deleteBook(String id) async {
-    final response = await http.delete(Uri.parse('$API_URL$id'));
+    final response = await http.delete(Uri.parse('$apiUrl$id'));
 
     if (response.statusCode != 200 && response.statusCode != 204) {
       throw Exception('Failed to delete book: ${response.statusCode}');
@@ -30,7 +30,7 @@ class BookService {
   }
 
   static Future<List<Book>> getAllBooks() async {
-    final response = await http.get(Uri.parse(API_URL));
+    final response = await http.get(Uri.parse(apiUrl));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body) as List;
@@ -41,7 +41,7 @@ class BookService {
   }
 
   static Future<Book> getBookById(String id) async {
-    final response = await http.get(Uri.parse('$API_URL$id'));
+    final response = await http.get(Uri.parse('$apiUrl$id'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);

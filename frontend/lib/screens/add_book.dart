@@ -3,6 +3,9 @@ import '../models/book.dart';
 import '../services/book_service.dart';
 
 class AddBookScreen extends StatefulWidget {
+  const AddBookScreen({super.key});
+
+  @override
   AddBookScreenState createState() => AddBookScreenState();
 }
 
@@ -23,39 +26,42 @@ class AddBookScreenState extends State<AddBookScreen> {
       publishedYear: publishedYearController.text,
     );
     await BookService.addBook(book);
-    Navigator.pop(context);
+    if (mounted) {
+      Navigator.pop(context);
+    }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add Book')),
+      appBar: AppBar(title: const Text('Add Book')),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: titleController,
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: const InputDecoration(labelText: 'Title'),
             ),
             TextField(
               controller: authorController,
-              decoration: InputDecoration(labelText: 'Author Name'),
+              decoration: const InputDecoration(labelText: 'Author Name'),
             ),
             TextField(
               controller: genreController,
-              decoration: InputDecoration(labelText: 'Genre'),
+              decoration: const InputDecoration(labelText: 'Genre'),
             ),
             TextField(
               controller: priceController,
-              decoration: InputDecoration(labelText: 'Price'),
+              decoration: const InputDecoration(labelText: 'Price'),
             ),
             TextField(
               controller: publishedYearController,
-              decoration: InputDecoration(labelText: 'Published Year'),
+              decoration: const InputDecoration(labelText: 'Published Year'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
-              child: Text("Add Book"),
+              child: const Text("Add Book"),
               onPressed: () {
                 handleSubmit();
               },
