@@ -63,3 +63,4 @@ dist/
 *.ear
 *.jar
 *.class
+.DS_Store
