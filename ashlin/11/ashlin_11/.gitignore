@@ -1,0 +1,33 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub/
+build/
+
+# IDE files
+.idea/
+.vscode/
+
+# Android
+android/.gradle/
+android/local.properties
+android/key.properties
+android/**/GeneratedPluginRegistrant.java
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/App.framework
+
+# macOS
+macos/Pods/
+macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
